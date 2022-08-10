@@ -1,7 +1,7 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React, {FC} from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {RootStackParams} from '../../App';
+import {RootStackParams} from '../App';
 import {useIssuesContext} from '../contexts/AppContext';
 import IssuesItem from './IssuesItem';
 

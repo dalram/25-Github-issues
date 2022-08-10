@@ -5,7 +5,7 @@ import Navigation from '../components/Navigation';
 import IssuesList from '../components/IssuesList';
 import {useIssuesContext} from '../contexts/AppContext';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParams} from '../../App';
+import {RootStackParams} from '../App';
 
 type Props = NativeStackScreenProps<RootStackParams, 'Issues'>;
 

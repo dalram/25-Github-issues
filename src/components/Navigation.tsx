@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {FC} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {RootStackParams} from '../../App';
+import {RootStackParams} from '../App';
 
 const Navigation: FC = () => {
   const navigation =

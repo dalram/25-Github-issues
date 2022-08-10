@@ -11,11 +11,11 @@
 import React, {FC, useState} from 'react'; // , {type PropsWithChildren}
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import MainScreen from './src/screens/MainScreen';
-import IssuesScreen from './src/screens/IssuesScreen';
-import DataItem from './src/dataItem';
-import {IssuesContext} from './src/contexts/AppContext';
-import IssueScreen from './src/screens/IssueScreen';
+import MainScreen from './screens/MainScreen';
+import IssuesScreen from './screens/IssuesScreen';
+import DataItem from './dataItem';
+import {IssuesContext} from './contexts/AppContext';
+import IssueScreen from './screens/IssueScreen';
 export type RootStackParams = {
   Main: undefined;
   Issues: undefined;
