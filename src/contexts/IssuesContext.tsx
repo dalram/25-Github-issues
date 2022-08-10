@@ -1,5 +1,5 @@
-import {createContext, useContext} from 'react';
-import DataItem from '../dataItem';
+import { createContext, useContext } from "react";
+import DataItem from "../types";
 
 export type ContextContent = {
   issuesData: DataItem[];

@@ -1,11 +1,11 @@
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React, {FC} from 'react';
-import {Text, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
-import {RootStackParams} from '../App';
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import React, { FC } from "react";
+import { Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import { RootStackParams } from "../types";
 
-type Props = NativeStackScreenProps<RootStackParams, 'Issue'>;
+type Props = NativeStackScreenProps<RootStackParams, "Issue">;
 
-const IssueScreen: FC<Props> = ({route}) => {
+const IssueScreen: FC<Props> = ({ route }) => {
   // console.log(route.params.created_at.split('T', 2).join(' ').replace('Z', ''));
 
   return (
@@ -16,10 +16,10 @@ const IssueScreen: FC<Props> = ({route}) => {
         <Text style={styles.issueDetails}>
           {route.params.assignees[0]
             ? `Issue Assigned: ${route.params.assignees[0].login}`
-            : 'No one Assigned for this Issue'}
+            : "No one Assigned for this Issue"}
         </Text>
         <Text style={styles.issueDetails}>
-          {route.params.created_at.split('T', 2).join(' ').replace('Z', '')}
+          {route.params.created_at.split("T", 2).join(" ").replace("Z", "")}
         </Text>
       </ScrollView>
     </SafeAreaView>
@@ -31,7 +31,7 @@ export default IssueScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     padding: 16,
     marginTop: 24,
   },
@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
   issueTitle: {
     fontSize: 24,
     marginTop: 8,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   issueDetails: {
     fontSize: 16,
     marginTop: 8,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

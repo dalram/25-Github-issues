@@ -1,11 +1,11 @@
-import React, {FC, useState} from 'react';
-import {Modal, StyleSheet, View, Text} from 'react-native';
-import {useIssuesContext} from '../contexts/AppContext';
+import React, { FC, useState } from "react";
+import { Modal, StyleSheet, View, Text } from "react-native";
+import { useIssuesContext } from "../contexts/IssuesContext";
 
-import Button from './Button';
+import Button from "./Button";
 
 const SortingModal: FC = () => {
-  const {issuesData, setIssuesData} = useIssuesContext();
+  const { issuesData, setIssuesData } = useIssuesContext();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
@@ -16,7 +16,8 @@ const SortingModal: FC = () => {
         visible={modalVisible}
         onRequestClose={() => {
           setModalVisible(!modalVisible);
-        }}>
+        }}
+      >
         <View style={styles.container}>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>Sort Issues</Text>
@@ -28,8 +29,8 @@ const SortingModal: FC = () => {
                 onPress={() => {
                   setIssuesData(
                     [...issuesData].sort((a, b) =>
-                      a.title.localeCompare(b.title),
-                    ),
+                      a.title.localeCompare(b.title)
+                    )
                   );
                   setModalVisible(!modalVisible);
                 }}
@@ -40,8 +41,8 @@ const SortingModal: FC = () => {
                 onPress={() => {
                   setIssuesData(
                     [...issuesData].sort((a, b) =>
-                      b.title.localeCompare(a.title),
-                    ),
+                      b.title.localeCompare(a.title)
+                    )
                   );
                   setModalVisible(!modalVisible);
                 }}
@@ -54,8 +55,8 @@ const SortingModal: FC = () => {
                 onPress={() => {
                   setIssuesData(
                     [...issuesData].sort((a, b) =>
-                      a.created_at.localeCompare(b.created_at),
-                    ),
+                      a.created_at.localeCompare(b.created_at)
+                    )
                   );
                   setModalVisible(!modalVisible);
                 }}
@@ -66,8 +67,8 @@ const SortingModal: FC = () => {
                 onPress={() => {
                   setIssuesData(
                     [...issuesData].sort((a, b) =>
-                      b.created_at.localeCompare(a.created_at),
-                    ),
+                      b.created_at.localeCompare(a.created_at)
+                    )
                   );
                   setModalVisible(!modalVisible);
                 }}
@@ -97,34 +98,34 @@ export default SortingModal;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     margin: 5,
   },
   buttonContainer: {
     flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
     margin: 5,
   },
   modalContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
     margin: 5,
   },
   titleContainer: {
     flex: 1,
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-    flexDirection: 'column',
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
+    flexDirection: "column",
     fontSize: 20,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   title: {
     fontSize: 20,
-    fontWeight: '600',
+    fontWeight: "600",
   },
 });
