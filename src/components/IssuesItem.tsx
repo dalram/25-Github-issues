@@ -25,7 +25,7 @@ const IssuesItem: FC<Props> = ({ item, onPress }) => {
       <Pressable
         style={({ pressed }) => pressed && styles.pressedItem}
         onPress={() => {
-          onPress(
+          onPress( // cia gal gali paduot tiesiog visa item i argumenta?
             item.title,
             item.created_at,
             item.assignees ? item.assignees : [],
