@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {Text, StyleSheet, Pressable} from 'react-native';
 
-interface Props {
+interface Props { // geriau butu pervadint i ButtonProps
   title: string;
   onPress: () => void;
   background?: string;

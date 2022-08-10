@@ -1,4 +1,5 @@
 /**
+ * delete
  * Sample React Native App
  * https://github.com/facebook/react-native
  *
@@ -8,16 +9,16 @@
  * @format
  */
 
-import React, {FC, useState} from 'react'; // , {type PropsWithChildren}
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import MainScreen from './screens/MainScreen';
-import IssuesScreen from './screens/IssuesScreen';
-import DataItem from './dataItem';
-import {IssuesContext} from './contexts/AppContext';
-import IssueScreen from './screens/IssueScreen';
+import React, { FC, useState } from "react"; // , {type PropsWithChildren}
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MainScreen from "./screens/MainScreen";
+import IssuesScreen from "./screens/IssuesScreen";
+import DataItem from "./dataItem";
+import { IssuesContext } from "./contexts/AppContext";
+import IssueScreen from "./screens/IssueScreen";
 export type RootStackParams = {
-  Main: undefined;
+  Main: undefined; // cia panaudok enum vietoj Main ir visu kitu, ir kitur naudok ne stringa "Main", o ta pati enuma
   Issues: undefined;
   Issue: {
     title: string;
@@ -25,7 +26,7 @@ export type RootStackParams = {
     assignees: [
       {
         login: string;
-      }?,
+      }?
     ];
     body: string;
   };
@@ -34,12 +35,14 @@ const RootStack = createNativeStackNavigator<RootStackParams>();
 
 const App: FC = () => {
   const [issuesData, setIssuesData] = useState<DataItem[]>([]);
+  /* sukurk navigationui ir contextui atskirus componentus, kuriame bus tik jie */
   return (
     <IssuesContext.Provider
       value={{
         issuesData,
         setIssuesData,
-      }}>
+      }}
+    >
       <NavigationContainer>
         <RootStack.Navigator initialRouteName="Main">
           <RootStack.Screen name="Main" component={MainScreen} />
@@ -51,7 +54,7 @@ const App: FC = () => {
   );
 };
 
-// const styles = StyleSheet.create({
+// const styles = StyleSheet.create({ delete
 //   container: {
 //     flex: 1,
 //   },
