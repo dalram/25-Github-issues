@@ -22,7 +22,7 @@ Firstly if you new and not used React-Native before, please set up your [develop
 
 ## App Photos
 
-![Main page without link](/src/assets/MainWithoutLink.png | width=100)
+![Main page without link](/src/assets/MainWithoutLink.png =250x250)
 ![Main page with provided Github repository](/src/assets/MainRepoProvided.png | width=100)
 ![Issues list](/src/assets/IssuesList.png | width=100)
 ![Sorting modal](/src/assets/SortModal.png | width=100)
