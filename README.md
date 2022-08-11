@@ -15,10 +15,10 @@ Firstly if you new and not used React-Native before, please set up your [develop
 
 
 ## Used libraries for this project
--   react
--   react-native
--   react-navigation
--   react-native-screens
+-   React
+-   React-native
+-   React-navigation
+-   React-native-screens
 
 
 ## Author
