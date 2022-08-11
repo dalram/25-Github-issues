@@ -1,5 +1,7 @@
 import React, { FC, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
+import { useIssuesContext } from "../contexts/IssuesContext";
+import { useIssuesData } from "../hooks/useIssuesData";
 import { DataItem } from "../types";
 import Button from "./Button";
 
@@ -7,18 +9,10 @@ interface Props {
   setIssuesData: React.Dispatch<React.SetStateAction<DataItem[]>>;
 }
 
-const LinkInput: FC<Props> = (props) => {
-  const [inputValue, setInputValue] = useState<string>("");
-  const handleInputValue = (link: string) => {
-    const githubAccountName: string = link.split("/")[3];
-    const githubRepositoryName: string = link.split("/")[4];
-    fetch(
-      `https://api.github.com/repos/${githubAccountName}/${githubRepositoryName}/issues`
-    )
-      .then((resp) => resp.json())
-      .then((data) => props.setIssuesData(data));
-    setInputValue("");
-  };
+const LinkInput: FC = () => {
+  const { fetchIssues } = useIssuesData();
+  const { issuesData, setIssuesData, inputValue, setInputValue } =
+    useIssuesContext();
   //   https://github.com/front-end-by-rimantas/35-grupe-portfolio-spet
   //   https://github.com/dalram/20-bandomasis/issues
 
@@ -33,10 +27,7 @@ const LinkInput: FC<Props> = (props) => {
         defaultValue={inputValue}
         onChangeText={(newValue) => setInputValue(newValue)}
       />
-      <Button
-        title="Fetch issues"
-        onPress={() => handleInputValue(inputValue)}
-      />
+      <Button title="Fetch issues" onPress={() => fetchIssues(inputValue)} />
     </View>
   );
 };

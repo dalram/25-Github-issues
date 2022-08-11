@@ -1,8 +1,8 @@
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {FC} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {RootStackParams} from '../App';
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import React, { FC } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { RootStackParams } from "../types";
 
 const Navigation: FC = () => {
   const navigation =
@@ -13,8 +13,9 @@ const Navigation: FC = () => {
         <Pressable
           style={styles.navBorder}
           onPress={() => {
-            navigation.push('Main');
-          }}>
+            navigation.navigate("Main");
+          }}
+        >
           <Text style={styles.navTitle}>Main page</Text>
         </Pressable>
       </View>
@@ -22,8 +23,9 @@ const Navigation: FC = () => {
         <Pressable
           style={styles.navBorder}
           onPress={() => {
-            navigation.push('Issues');
-          }}>
+            navigation.navigate("Issues");
+          }}
+        >
           <Text style={styles.navTitle}>Issues List</Text>
         </Pressable>
       </View>
@@ -36,23 +38,23 @@ export default Navigation;
 const styles = StyleSheet.create({
   navigationContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    flexDirection: 'row',
+    alignItems: "center",
+    justifyContent: "space-around",
+    flexDirection: "row",
     marginTop: 10,
   },
   navBorder: {
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: "black",
     borderRadius: 10,
   },
   navItem: {
     marginRight: 10,
   },
   navTitle: {
-    fontWeight: 'bold',
-    color: '#4248f5',
+    fontWeight: "bold",
+    color: "#4248f5",
   },
 });
