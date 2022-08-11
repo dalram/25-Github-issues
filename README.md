@@ -22,7 +22,7 @@ Firstly if you new and not used React-Native before, please set up your [develop
 
 ## App Photos
 
-![Main page without link](/src/assets/MainWithoutLink.png)
+![Main page without link]<img src="https://github.com/dalram/25-Github-issues/blob/master/src/assets/IssuesList.png" width="400" height="790">
 ![Main page with provided Github repository](/src/assets/MainRepoProvided.png)
 ![Issues list](/src/assets/IssuesList.png)
 ![Sorting modal](/src/assets/SortModal.png)
