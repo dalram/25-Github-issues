@@ -1,4 +1,4 @@
-type DataItem = {
+export type DataItem = {
   id: number;
   title: string;
   created_at: string;
@@ -9,8 +9,6 @@ type DataItem = {
   ];
   body: string;
 };
-
-export default DataItem;
 
 export type RootStackParams = {
   Main: undefined;

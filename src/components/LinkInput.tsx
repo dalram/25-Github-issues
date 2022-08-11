@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import DataItem from "../types";
+import { DataItem } from "../types";
 import Button from "./Button";
 
 interface Props {

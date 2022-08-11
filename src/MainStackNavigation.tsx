@@ -2,9 +2,10 @@ import React, { FC, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainScreen from "./screens/MainScreen";
 import IssuesScreen from "./screens/IssuesScreen";
-import DataItem, { RootStackParams } from "./types";
+import { DataItem, RootStackParams } from "./types";
 import { IssuesContext } from "./contexts/IssuesContext";
 import IssueScreen from "./screens/IssueScreen";
+import { NavigationContainer } from "@react-navigation/native";
 enum NavigationPages {
   Main = "Main",
   Issues = "Issues",
@@ -16,12 +17,7 @@ const RootStack = createNativeStackNavigator<RootStackParams>();
 const MainStackNavigation: FC = () => {
   const [issuesData, setIssuesData] = useState<DataItem[]>([]);
   return (
-    <IssuesContext.Provider
-      value={{
-        issuesData,
-        setIssuesData,
-      }}
-    >
+    <NavigationContainer>
       <RootStack.Navigator initialRouteName={NavigationPages.Main}>
         <RootStack.Screen name={NavigationPages.Main} component={MainScreen} />
         <RootStack.Screen
@@ -33,7 +29,7 @@ const MainStackNavigation: FC = () => {
           component={IssueScreen}
         />
       </RootStack.Navigator>
-    </IssuesContext.Provider>
+    </NavigationContainer>
   );
 };
 

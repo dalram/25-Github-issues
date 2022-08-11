@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import DataItem from "../types";
+import { DataItem } from "../types";
 
 type Props = {
   item: DataItem;

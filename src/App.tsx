@@ -1,12 +1,12 @@
 import React, { FC, useState } from "react";
 import AppNavigation from "./MainStackNavigation";
-import { NavigationContainer } from "@react-navigation/native";
+import AppContext from "./contexts/AppContext";
 
 const App: FC = () => {
   return (
-    <NavigationContainer>
+    <AppContext>
       <AppNavigation />
-    </NavigationContainer>
+    </AppContext>
   );
 };
 
