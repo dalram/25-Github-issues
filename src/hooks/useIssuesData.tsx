@@ -1,4 +1,3 @@
-import { Node } from "typescript";
 import { useIssuesContext } from "../contexts/IssuesContext";
 
 export const useIssuesData = () => {

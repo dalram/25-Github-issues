@@ -1,6 +1,12 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { FC } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { RootStackParams, DataItem } from "../types";
 import { useIssuesContext } from "../contexts/IssuesContext";
 import IssuesItem from "./IssuesItem";

@@ -11,8 +11,7 @@ interface Props {
 
 const LinkInput: FC = () => {
   const { fetchIssues } = useIssuesData();
-  const { issuesData, setIssuesData, inputValue, setInputValue } =
-    useIssuesContext();
+  const { inputValue, setInputValue } = useIssuesContext();
   //   https://github.com/front-end-by-rimantas/35-grupe-portfolio-spet
   //   https://github.com/dalram/20-bandomasis/issues
 
