@@ -14,10 +14,11 @@ import IssuesItem from "./IssuesItem";
 type Props = NativeStackScreenProps<RootStackParams, "Issues">;
 
 const IssuesList: FC<Props> = ({ navigation }) => {
-  const { issuesData, inputValue } = useIssuesContext();
+  const { issuesData, inputValue, spinner } = useIssuesContext();
   return (
     <View style={styles.issuesList}>
       <Text style={styles.issuesTitle}>Browse your repository issues</Text>
+      {spinner ? <ActivityIndicator size="large" /> : null}
       {issuesData.length !== 0 ? (
         <FlatList
           data={issuesData}
