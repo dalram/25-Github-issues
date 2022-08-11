@@ -6,7 +6,7 @@ import { RootStackParams } from "../types";
 type Props = NativeStackScreenProps<RootStackParams, "Issue">;
 
 const IssueScreen: FC<Props> = ({ route }) => {
-  // console.log(route.params.created_at.split('T', 2).join(' ').replace('Z', ''));
+  console.log(route.params.created_at.split("T", 2).join(" ").replace("Z", ""));
 
   return (
     <SafeAreaView style={styles.container}>
@@ -14,7 +14,7 @@ const IssueScreen: FC<Props> = ({ route }) => {
         <Text style={styles.issueTitle}>{route.params.title}</Text>
         <Text style={styles.issueDetails}>{route.params.body}</Text>
         <Text style={styles.issueDetails}>
-          {route.params.assignees[0]
+          {route.params.assignees
             ? `Issue Assigned: ${route.params.assignees[0].login}`
             : "No one Assigned for this Issue"}
         </Text>

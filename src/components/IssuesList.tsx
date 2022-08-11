@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { FC } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { RootStackParams } from "../types";
+import DataItem, { RootStackParams } from "../types";
 import { useIssuesContext } from "../contexts/IssuesContext";
 import IssuesItem from "./IssuesItem";
 
@@ -19,13 +19,8 @@ const IssuesList: FC<Props> = ({ navigation }) => {
             return (
               <IssuesItem
                 item={item.item}
-                onPress={(title, created_at, assignees, body) => {
-                  navigation.navigate("Issue", {
-                    title,
-                    created_at,
-                    assignees,
-                    body,
-                  });
+                onPress={(item) => {
+                  navigation.navigate("Issue", item);
                 }}
               />
             );
