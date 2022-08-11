@@ -23,13 +23,22 @@ Firstly if you new and not used React-Native before, please set up your [develop
 ## App Photos
 
 Main page without link:
+
+<p>
 <img src="https://github.com/dalram/25-Github-issues/blob/master/src/assets/IssuesList.png" width="400">
-!Main page with provided Github repository:
+</p>
+Main page with provided Github repository:
+<p>
 <img src="https://github.com/dalram/25-Github-issues/blob/master/src/assets/MainRepoProvided.png" width="400">
+</p>
 Issues list:
+<p>
 <img src="https://github.com/dalram/25-Github-issues/blob/master/src/assets/IssuesList.png" width="400">
+</p>
 Sorting modal:
+<p>
 <img src="https://github.com/dalram/25-Github-issues/blob/master/src/assets/SortModal.png" width="400">
+</p>
 
 ## Author
 
