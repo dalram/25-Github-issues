@@ -2,7 +2,7 @@ type DataItem = {
   id: number;
   title: string;
   created_at: string;
-  assignees?: [
+  assignees: [
     {
       login: string;
     }
