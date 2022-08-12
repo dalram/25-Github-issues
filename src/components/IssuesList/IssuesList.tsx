@@ -1,4 +1,7 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps,
+} from "@react-navigation/native-stack";
 import React, { FC } from "react";
 import {
   ActivityIndicator,
@@ -8,15 +11,20 @@ import {
   View,
 } from "react-native";
 import { RootStackParams, DataItem } from "../../types";
-import IssuesItem from "../IssuesItem/IssuesItem";
-import { useIssuesData } from "../../hooks/useIssuesData";
+import { IssuesItem } from "components/IssuesItem";
+import { RouteProp } from "@react-navigation/native";
 
-type Props = NativeStackScreenProps<RootStackParams, "Issues">;
-
-const IssuesList: FC<Props> = ({ navigation }) => {
-  const { issuesData, isLoading } = useIssuesData();
-  console.log("IssuesList", isLoading);
-
+type IssuesListProp = {
+  navigation: NativeStackNavigationProp<RootStackParams, "Issues", undefined>;
+  route: RouteProp<RootStackParams, "Issues">;
+  isLoading: boolean;
+  issuesData: DataItem[];
+};
+const IssuesList: FC<IssuesListProp> = ({
+  navigation,
+  isLoading,
+  issuesData,
+}) => {
   return (
     <View style={styles.issuesList}>
       <Text style={styles.issuesTitle}>Browse your repository issues</Text>

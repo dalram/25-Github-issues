@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useIssuesContext } from "../contexts/IssuesContext";
+import { useIssuesContext } from "contexts/IssuesContext";
 
 export const useIssuesData = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { setIssuesData, issuesData } = useIssuesContext();
-  console.log("useIssuesData", isLoading);
-
   const fetchIssues = (url: string) => {
     setIsLoading(true);
     const githubAccountName: string = url.split("/")[3];

@@ -3,24 +3,23 @@ import { StyleSheet, View } from "react-native";
 import LinkInput from "components/LinkInput/LinkInput";
 import Navigation from "components/Navigation/Navigation";
 import IssuesList from "components/IssuesList/IssuesList";
-import { useIssuesContext } from "../contexts/IssuesContext";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParams } from "../types";
+import { useIssuesData } from "../hooks/useIssuesData";
 
 type Props = NativeStackScreenProps<RootStackParams, "Issues">;
 
 const MainScreen: FC<Props> = ({ navigation, route }) => {
-  const { setIssuesData } = useIssuesContext();
+  const { isLoading, issuesData, fetchIssues } = useIssuesData();
   return (
     <View style={styles.container}>
-      <LinkInput />
-      {/* <View style={styles.container}>
-        <MyButton
-          title="Check API data"
-          onPress={() => console.log(typeof issuesData)}
-        />
-      </View> */}
-      <IssuesList navigation={navigation} route={route} />
+      <LinkInput fetchIssues={fetchIssues} />
+      <IssuesList
+        navigation={navigation}
+        route={route}
+        isLoading={isLoading}
+        issuesData={issuesData}
+      />
       <Navigation />
     </View>
   );
