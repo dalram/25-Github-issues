@@ -5,7 +5,7 @@ import Navigation from "../components/Navigation";
 import IssuesList from "../components/IssuesList";
 import { useIssuesContext } from "../contexts/IssuesContext";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParams } from "../App";
+import { RootStackParams } from "../types";
 
 type Props = NativeStackScreenProps<RootStackParams, "Issues">;
 
@@ -13,7 +13,7 @@ const MainScreen: FC<Props> = ({ navigation, route }) => {
   const { setIssuesData } = useIssuesContext();
   return (
     <View style={styles.container}>
-      <LinkInput setIssuesData={setIssuesData} />
+      <LinkInput />
       {/* <View style={styles.container}>
         <MyButton
           title="Check API data"

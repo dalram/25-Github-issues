@@ -2,9 +2,14 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
-
-    /* Completeness */
-    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
-  }
+    "strict": true,
+    // Path alias config
+    "baseUrl": ".",
+    "paths": {
+      // This needs to be mirrored in babel.config.js
+      // Components is a directory with sub directories
+      "components/*": ["src/components/*"],
+      // We want to expose the exports of the buttons index file
+  },
+  },
 }

@@ -1,16 +1,16 @@
-import React, {FC} from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, { FC } from "react";
+import { StyleSheet, View } from "react-native";
 // import IssuesItem from '../components/IssuesItem';
-import Navigation from '../components/Navigation';
+import Navigation from "../components/Navigation";
 // import {useGlobalContext} from '../contexts/AppContext';
-import IssuesList from '../components/IssuesList';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParams} from '../App';
-import SortingModal from '../components/SortingModal';
+import IssuesList from "../components/IssuesList";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParams } from "../types";
+import SortingModal from "../components/SortingModal";
 
-type Props = NativeStackScreenProps<RootStackParams, 'Issues'>;
+type Props = NativeStackScreenProps<RootStackParams, "Issues">;
 
-const IssuesScreen: FC<Props> = ({navigation, route}) => {
+const IssuesScreen: FC<Props> = ({ navigation, route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.issues}>
