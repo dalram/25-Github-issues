@@ -5,15 +5,13 @@ import { useIssuesData } from "../hooks/useIssuesData";
 import { DataItem } from "../types";
 import Button from "./Button";
 
-interface Props {
-  setIssuesData: React.Dispatch<React.SetStateAction<DataItem[]>>;
-}
+// interface Props {
+//   setIssuesData: React.Dispatch<React.SetStateAction<DataItem[]>>;
+// }
 
 const LinkInput: FC = () => {
   const { fetchIssues } = useIssuesData();
-  const { inputValue, setInputValue } = useIssuesContext();
-  //   https://github.com/front-end-by-rimantas/35-grupe-portfolio-spet
-  //   https://github.com/dalram/20-bandomasis/issues
+  const [inputValue, setInputValue] = useState<string>("");
 
   return (
     <View style={styles.inputContainer}>

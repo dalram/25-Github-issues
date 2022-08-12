@@ -1,12 +1,16 @@
+import { useState } from "react";
 import { useIssuesContext } from "../contexts/IssuesContext";
 
 export const useIssuesData = () => {
-  const { setIssuesData, setSpinner } = useIssuesContext();
-  const fetchIssues = async (inputValue: string) => {
-    setSpinner(true);
-    const githubAccountName: string = inputValue.split("/")[3];
-    const githubRepositoryName: string = inputValue.split("/")[4];
-    await fetch(
+  const [isLoading, setIsLoading] = useState(false);
+  const { setIssuesData, issuesData } = useIssuesContext();
+  console.log("useIssuesData", isLoading);
+
+  const fetchIssues = (url: string) => {
+    setIsLoading(true);
+    const githubAccountName: string = url.split("/")[3];
+    const githubRepositoryName: string = url.split("/")[4];
+    fetch(
       `https://api.github.com/repos/${githubAccountName}/${githubRepositoryName}/issues`
     )
       .then((resp) => resp.json())
@@ -21,8 +25,25 @@ export const useIssuesData = () => {
         console.error(error);
       })
       .finally(() => {
-        setSpinner(false);
+        setIsLoading(false);
       });
   };
-  return { fetchIssues };
+
+  return { fetchIssues, issuesData, isLoading };
 };
+// https://github.com/withastro/astro
+// https://github.com/dalram/20-bandomasis
+// .then((resp) => resp.json())
+//       .then((data) => {
+//         if (data.message === "Not Found") {
+//           setIssuesData([]);
+//         } else {
+//           setIssuesData(data);
+//         }
+//       })
+//       .catch((error) => {
+//         console.error(error);
+//       })
+//       .finally(() => {
+//         setIsLoading(false);
+//       });

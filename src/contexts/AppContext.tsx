@@ -8,7 +8,7 @@ type Props = {
 const AppContext: FC<Props> = ({ children }) => {
   const [issuesData, setIssuesData] = useState<DataItem[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
-  const [spinner, setSpinner] = useState<boolean>(false);
+  // const [isLoading, setIsLoading] = useState<boolean>(false);
   return (
     <IssuesContext.Provider
       value={{
@@ -16,8 +16,8 @@ const AppContext: FC<Props> = ({ children }) => {
         setIssuesData,
         inputValue,
         setInputValue,
-        setSpinner,
-        spinner,
+        // isLoading,
+        // setIsLoading,
       }}
     >
       {children}
