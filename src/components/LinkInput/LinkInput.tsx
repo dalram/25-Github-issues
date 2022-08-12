@@ -1,9 +1,9 @@
 import React, { FC, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import { useIssuesContext } from "../contexts/IssuesContext";
-import { useIssuesData } from "../hooks/useIssuesData";
-import { DataItem } from "../types";
-import Button from "./Button";
+import { useIssuesContext } from "../../contexts/IssuesContext";
+import { useIssuesData } from "../../hooks/useIssuesData";
+import { DataItem } from "../../types";
+import Button from "../Button/Button";
 
 // interface Props {
 //   setIssuesData: React.Dispatch<React.SetStateAction<DataItem[]>>;
@@ -12,7 +12,6 @@ import Button from "./Button";
 const LinkInput: FC = () => {
   const { fetchIssues } = useIssuesData();
   const [inputValue, setInputValue] = useState<string>("");
-
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.inputTitle}>
@@ -25,6 +24,7 @@ const LinkInput: FC = () => {
         onChangeText={(newValue) => setInputValue(newValue)}
       />
       <Button title="Fetch issues" onPress={() => fetchIssues(inputValue)} />
+      {/*  */}
     </View>
   );
 };

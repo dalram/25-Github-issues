@@ -7,10 +7,9 @@ import {
   Text,
   View,
 } from "react-native";
-import { RootStackParams, DataItem } from "../types";
-import { useIssuesContext } from "../contexts/IssuesContext";
-import IssuesItem from "./IssuesItem";
-import { useIssuesData } from "../hooks/useIssuesData";
+import { RootStackParams, DataItem } from "../../types";
+import IssuesItem from "../IssuesItem/IssuesItem";
+import { useIssuesData } from "../../hooks/useIssuesData";
 
 type Props = NativeStackScreenProps<RootStackParams, "Issues">;
 

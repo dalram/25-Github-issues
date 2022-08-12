@@ -28,22 +28,9 @@ export const useIssuesData = () => {
         setIsLoading(false);
       });
   };
+  // async await perdaryti
 
   return { fetchIssues, issuesData, isLoading };
 };
 // https://github.com/withastro/astro
 // https://github.com/dalram/20-bandomasis
-// .then((resp) => resp.json())
-//       .then((data) => {
-//         if (data.message === "Not Found") {
-//           setIssuesData([]);
-//         } else {
-//           setIssuesData(data);
-//         }
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       })
-//       .finally(() => {
-//         setIsLoading(false);
-//       });

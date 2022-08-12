@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { StyleSheet, View } from "react-native";
-import LinkInput from "../components/LinkInput";
-import Navigation from "../components/Navigation";
-import IssuesList from "../components/IssuesList";
+import LinkInput from "components/LinkInput/LinkInput";
+import Navigation from "components/Navigation/Navigation";
+import IssuesList from "components/IssuesList/IssuesList";
 import { useIssuesContext } from "../contexts/IssuesContext";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParams } from "../types";

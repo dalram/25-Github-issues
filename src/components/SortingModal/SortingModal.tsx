@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 import { Modal, StyleSheet, View, Text } from "react-native";
-import { useIssuesContext } from "../contexts/IssuesContext";
+import { useIssuesContext } from "../../contexts/IssuesContext";
 
-import Button from "./Button";
+import Button from "../Button/Button";
 
 const SortingModal: FC = () => {
   const { issuesData, setIssuesData } = useIssuesContext();
