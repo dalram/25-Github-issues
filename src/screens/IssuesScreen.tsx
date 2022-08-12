@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { StyleSheet, View } from "react-native";
 import { Navigation } from "components/Navigation";
-import { IssuesList } from "../components/IssuesList";
+import { IssuesList } from "components/IssuesList";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParams } from "../types";
 import { SortingModal } from "components/SortingModal";
