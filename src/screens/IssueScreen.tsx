@@ -1,7 +1,7 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { FC } from "react";
 import { Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
-import { RootStackParams } from "../types";
+import { RootStackParams } from "types";
 
 type Props = NativeStackScreenProps<RootStackParams, "Issue">;
 

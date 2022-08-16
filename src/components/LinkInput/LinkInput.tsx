@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import Button from "../Button/Button";
+import { Button } from "components/Button";
 
 interface Props {
   fetchIssues: (url: string) => void;
@@ -20,7 +20,6 @@ const LinkInput: FC<Props> = ({ fetchIssues }) => {
         onChangeText={(newValue) => setInputValue(newValue)}
       />
       <Button title="Fetch issues" onPress={() => fetchIssues(inputValue)} />
-      {/*  */}
     </View>
   );
 };

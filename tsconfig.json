@@ -11,6 +11,8 @@
       "components/*": ["src/components/*"],
       "contexts/*": ["src/contexts/*"],
       "hooks/*": ["src/hooks/*"],
+      "screens/*": ["src/screens/*"],
+      "types*": ["src/types"],
   },
   },
 }

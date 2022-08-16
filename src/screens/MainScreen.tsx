@@ -4,7 +4,7 @@ import LinkInput from "components/LinkInput/LinkInput";
 import Navigation from "components/Navigation/Navigation";
 import IssuesList from "components/IssuesList/IssuesList";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParams } from "../types";
+import { RootStackParams } from "types";
 import { useIssuesData } from "hooks/useIssuesData";
 
 type Props = NativeStackScreenProps<RootStackParams, "Issues">;
