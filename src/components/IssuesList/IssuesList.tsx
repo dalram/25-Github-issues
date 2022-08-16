@@ -10,18 +10,18 @@ import {
   Text,
   View,
 } from "react-native";
-import { RootStackParams, DataItem } from "../../types";
+import { RootStackParams, DataItem } from "types";
 import { IssuesItem } from "components/IssuesItem";
 import { RouteProp } from "@react-navigation/native";
 
 type IssuesListProp = {
-  navigation: NativeStackNavigationProp<RootStackParams, "Issues", undefined>;
+  onIssuePress: (item: DataItem) => void;
   route: RouteProp<RootStackParams, "Issues">;
   isLoading: boolean;
   issuesData: DataItem[];
 };
 const IssuesList: FC<IssuesListProp> = ({
-  navigation,
+  onIssuePress,
   isLoading,
   issuesData,
 }) => {
@@ -34,9 +34,7 @@ const IssuesList: FC<IssuesListProp> = ({
           return (
             <IssuesItem
               item={item.item}
-              onPress={(item) => {
-                navigation.navigate("Issue", item);
-              }}
+              onPress={(item) => onIssuePress(item)}
             />
           );
         }}

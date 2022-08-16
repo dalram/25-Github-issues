@@ -22,5 +22,3 @@ export const useIssuesData = () => {
   };
   return { fetchIssues, issuesData, isLoading };
 };
-// https://github.com/withastro/astro
-// https://github.com/dalram/20-bandomasis
