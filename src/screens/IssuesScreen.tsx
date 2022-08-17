@@ -1,11 +1,13 @@
 import React, { FC } from "react";
-import { ListRenderItemInfo, StyleSheet, View } from "react-native";
-import { Navigation } from "components/Navigation";
-import { IssuesList } from "components/IssuesList";
+import { StyleSheet, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { DataItem, RootStackParams } from "types";
-import { SortingModal } from "components/SortingModal";
 import { useIssuesData } from "hooks/useIssuesData";
+import { DataItem, RootStackParams } from "types";
+
+import { IssuesList } from "components/IssuesList";
+import { Navigation } from "components/Navigation";
+import { SortingModal } from "components/SortingModal";
+
 import { NavigationPages } from "../MainStackNavigation";
 
 type Props = NativeStackScreenProps<RootStackParams, NavigationPages.Issues>;

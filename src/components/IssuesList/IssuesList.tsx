@@ -1,7 +1,3 @@
-import {
-  NativeStackNavigationProp,
-  NativeStackScreenProps,
-} from "@react-navigation/native-stack";
 import React, { FC } from "react";
 import {
   ActivityIndicator,
@@ -10,9 +6,10 @@ import {
   Text,
   View,
 } from "react-native";
-import { RootStackParams, DataItem } from "types";
-import { IssuesItem } from "components/IssuesItem";
 import { RouteProp } from "@react-navigation/native";
+import { DataItem,RootStackParams } from "types";
+
+import { IssuesItem } from "components/IssuesItem";
 
 type IssuesListProp = {
   onIssuePress: (item: DataItem) => void;

@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useState } from "react";
-import { IssuesContext } from "./IssuesContext";
 import { DataItem } from "types";
+
+import { IssuesContext } from "./IssuesContext";
 type Props = {
   children: ReactNode;
 };

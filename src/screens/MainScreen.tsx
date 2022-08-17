@@ -1,12 +1,13 @@
 import React, { FC } from "react";
 import { StyleSheet, View } from "react-native";
-import LinkInput from "components/LinkInput/LinkInput";
-import Navigation from "components/Navigation/Navigation";
-import IssuesList from "components/IssuesList/IssuesList";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { DataItem, RootStackParams } from "types";
 import { useIssuesData } from "hooks/useIssuesData";
 import { NavigationPages } from "MainStackNavigation";
+import { DataItem, RootStackParams } from "types";
+
+import IssuesList from "components/IssuesList/IssuesList";
+import LinkInput from "components/LinkInput/LinkInput";
+import Navigation from "components/Navigation/Navigation";
 
 type Props = NativeStackScreenProps<RootStackParams, NavigationPages.Issues>;
 

@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Modal, StyleSheet, View, Text } from "react-native";
+import { Modal, StyleSheet, Text,View } from "react-native";
 import { useIssuesContext } from "contexts/IssuesContext";
 
 import { Button } from "components/Button";

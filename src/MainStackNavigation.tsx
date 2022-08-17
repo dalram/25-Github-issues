@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MainScreen from "screens/MainScreen";
-import IssuesScreen from "screens/IssuesScreen";
-import { RootStackParams } from "types";
-import IssueScreen from "screens/IssueScreen";
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import IssueScreen from "screens/IssueScreen";
+import IssuesScreen from "screens/IssuesScreen";
+import MainScreen from "screens/MainScreen";
+import { RootStackParams } from "types";
 
 const RootStack = createNativeStackNavigator<RootStackParams>();
 
