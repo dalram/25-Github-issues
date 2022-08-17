@@ -1,9 +1,10 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { FC } from "react";
-import { Text, StyleSheet, SafeAreaView, ScrollView } from "react-native";
+import { SafeAreaView, ScrollView,StyleSheet, Text } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { NavigationPages } from "MainStackNavigation";
 import { RootStackParams } from "types";
 
-type Props = NativeStackScreenProps<RootStackParams, "Issue">;
+type Props = NativeStackScreenProps<RootStackParams, NavigationPages.Issue>;
 
 const IssueScreen: FC<Props> = ({ route }) => {
   return (

@@ -1,6 +1,7 @@
 import React, { FC } from "react";
-import AppNavigation from "./MainStackNavigation";
 import AppContext from "contexts/AppContext";
+
+import AppNavigation from "./MainStackNavigation";
 
 const App: FC = () => {
   return (

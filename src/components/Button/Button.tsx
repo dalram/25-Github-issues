@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Text, StyleSheet, Pressable } from "react-native";
+import { Pressable,StyleSheet, Text } from "react-native";
 
 interface ButtonProps {
   title: string;
