@@ -6,8 +6,8 @@ export const useIssuesData = () => {
   const { setIssuesData, issuesData } = useIssuesContext();
   const fetchIssues = async (url: string) => {
     setIsLoading(true);
-    const githubAccountName: string = url.split("/")[3];
-    const githubRepositoryName: string = url.split("/")[4];
+    const githubAccountName = url.split("/")[3];
+    const githubRepositoryName = url.split("/")[4];
     try {
       const response = await fetch(
         `https://api.github.com/repos/${githubAccountName}/${githubRepositoryName}/issues`

@@ -7,13 +7,14 @@ import {
   View,
 } from "react-native";
 import { RouteProp } from "@react-navigation/native";
-import { DataItem,RootStackParams } from "types";
+import { NavigationPages } from "MainStackNavigation*";
+import { DataItem, RootStackParams } from "types";
 
 import { IssuesItem } from "components/IssuesItem";
 
 type IssuesListProp = {
   onIssuePress: (item: DataItem) => void;
-  route: RouteProp<RootStackParams, "Issues">;
+  route: RouteProp<RootStackParams, NavigationPages.Issues>;
   isLoading: boolean;
   issuesData: DataItem[];
 };
@@ -28,14 +29,9 @@ const IssuesList: FC<IssuesListProp> = ({
       <FlatList
         data={issuesData}
         renderItem={(item) => {
-          return (
-            <IssuesItem
-              item={item.item}
-              onPress={(item) => onIssuePress(item)}
-            />
-          );
+          return <IssuesItem item={item.item} onIssuePress={onIssuePress} />;
         }}
-        keyExtractor={(item) => `${item.id}`} // keyExtractor turi gaut string`a
+        keyExtractor={(item) => `${item.id}`}
         ListEmptyComponent={
           isLoading ? (
             <ActivityIndicator size="large" />

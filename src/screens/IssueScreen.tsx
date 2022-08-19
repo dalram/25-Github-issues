@@ -1,12 +1,15 @@
 import React, { FC } from "react";
-import { SafeAreaView, ScrollView,StyleSheet, Text } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { NavigationPages } from "MainStackNavigation";
 import { RootStackParams } from "types";
 
-type Props = NativeStackScreenProps<RootStackParams, NavigationPages.Issue>;
+type IssueScreenProps = NativeStackScreenProps<
+  RootStackParams,
+  NavigationPages.Issue
+>;
 
-const IssueScreen: FC<Props> = ({ route }) => {
+const IssueScreen: FC<IssueScreenProps> = ({ route }) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollView}>

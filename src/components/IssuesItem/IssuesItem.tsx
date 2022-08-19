@@ -2,18 +2,18 @@ import React, { FC } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { DataItem } from "types";
 
-type Props = {
+type IssuesItemProps = {
   item: DataItem;
-  onPress: (item: DataItem) => void;
+  onIssuePress: (item: DataItem) => void;
 };
 
-const IssuesItem: FC<Props> = ({ item, onPress }) => {
+const IssuesItem: FC<IssuesItemProps> = ({ item, onIssuePress }) => {
   return (
     <View style={styles.issueContainer}>
       <Pressable
         style={({ pressed }) => pressed && styles.pressedItem}
         onPress={() => {
-          onPress(item);
+          onIssuePress(item);
         }}
       >
         <View style={styles.issueTitle}>

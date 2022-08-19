@@ -1,12 +1,12 @@
 import React, { FC, useState } from "react";
-import { Modal, StyleSheet, Text,View } from "react-native";
+import { Modal, StyleSheet, Text, View } from "react-native";
 import { useIssuesContext } from "contexts/IssuesContext";
 
 import { Button } from "components/Button";
 
 const SortingModal: FC = () => {
   const { issuesData, setIssuesData } = useIssuesContext();
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -88,6 +88,7 @@ const SortingModal: FC = () => {
       <Button
         title="Sort Issues"
         onPress={() => setModalVisible(!modalVisible)}
+        background="#000"
       />
     </View>
   );

@@ -10,9 +10,12 @@ import { SortingModal } from "components/SortingModal";
 
 import { NavigationPages } from "../MainStackNavigation";
 
-type Props = NativeStackScreenProps<RootStackParams, NavigationPages.Issues>;
+type IssuesScreenProps = NativeStackScreenProps<
+  RootStackParams,
+  NavigationPages.Issues
+>;
 
-const IssuesScreen: FC<Props> = ({ navigation, route }) => {
+const IssuesScreen: FC<IssuesScreenProps> = ({ navigation, route }) => {
   const { isLoading, issuesData } = useIssuesData();
   const onIssuePress = (item: DataItem) =>
     navigation.navigate(NavigationPages.Issue, item);
