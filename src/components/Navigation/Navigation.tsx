@@ -4,6 +4,8 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootStackParams } from "types";
 
+import { NavigationPages } from "../../MainStackNavigation";
+
 const Navigation: FC = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
@@ -13,7 +15,7 @@ const Navigation: FC = () => {
         <Pressable
           style={styles.navBorder}
           onPress={() => {
-            navigation.navigate("Main");
+            navigation.navigate(NavigationPages.Main);
           }}
         >
           <Text style={styles.navTitle}>Main page</Text>
@@ -23,7 +25,7 @@ const Navigation: FC = () => {
         <Pressable
           style={styles.navBorder}
           onPress={() => {
-            navigation.navigate("Issues");
+            navigation.navigate(NavigationPages.Issues);
           }}
         >
           <Text style={styles.navTitle}>Issues List</Text>

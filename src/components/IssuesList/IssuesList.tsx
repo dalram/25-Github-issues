@@ -7,20 +7,24 @@ import {
   View,
 } from "react-native";
 import { RouteProp } from "@react-navigation/native";
-import { DataItem,RootStackParams } from "types";
+import { DataItem, RootStackParams } from "types";
 
 import { IssuesItem } from "components/IssuesItem";
 
+import { NavigationPages } from "../../MainStackNavigation";
+
 type IssuesListProp = {
   onIssuePress: (item: DataItem) => void;
-  route: RouteProp<RootStackParams, "Issues">;
+  route: RouteProp<RootStackParams, NavigationPages.Issues>;
   isLoading: boolean;
   issuesData: DataItem[];
+  isUrlProvided: boolean;
 };
 const IssuesList: FC<IssuesListProp> = ({
   onIssuePress,
   isLoading,
   issuesData,
+  isUrlProvided,
 }) => {
   return (
     <View style={styles.issuesList}>
@@ -28,17 +32,16 @@ const IssuesList: FC<IssuesListProp> = ({
       <FlatList
         data={issuesData}
         renderItem={(item) => {
-          return (
-            <IssuesItem
-              item={item.item}
-              onPress={(item) => onIssuePress(item)}
-            />
-          );
+          return <IssuesItem item={item.item} onIssuePress={onIssuePress} />;
         }}
-        keyExtractor={(item) => `${item.id}`} // keyExtractor turi gaut string`a
+        keyExtractor={(item) => `${item.id}`}
         ListEmptyComponent={
           isLoading ? (
             <ActivityIndicator size="large" />
+          ) : isUrlProvided ? (
+            <Text style={styles.issuesNotProvided}>
+              Wrong Github repository provided
+            </Text>
           ) : (
             <Text style={styles.issuesNotProvided}>
               Github link not provided

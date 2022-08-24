@@ -10,10 +10,13 @@ import { SortingModal } from "components/SortingModal";
 
 import { NavigationPages } from "../MainStackNavigation";
 
-type Props = NativeStackScreenProps<RootStackParams, NavigationPages.Issues>;
+type IssuesScreenProps = NativeStackScreenProps<
+  RootStackParams,
+  NavigationPages.Issues
+>;
 
-const IssuesScreen: FC<Props> = ({ navigation, route }) => {
-  const { isLoading, issuesData } = useIssuesData();
+const IssuesScreen: FC<IssuesScreenProps> = ({ navigation, route }) => {
+  const { isLoading, issuesData, isUrlProvided } = useIssuesData();
   const onIssuePress = (item: DataItem) =>
     navigation.navigate(NavigationPages.Issue, item);
   return (
@@ -24,6 +27,7 @@ const IssuesScreen: FC<Props> = ({ navigation, route }) => {
           route={route}
           isLoading={isLoading}
           issuesData={issuesData}
+          isUrlProvided={isUrlProvided}
         />
       </View>
       <View style={styles.sorting}>

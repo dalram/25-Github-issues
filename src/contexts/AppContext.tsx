@@ -2,11 +2,11 @@ import React, { FC, ReactNode, useState } from "react";
 import { DataItem } from "types";
 
 import { IssuesContext } from "./IssuesContext";
-type Props = {
+type AppContextProps = {
   children: ReactNode;
 };
 
-const AppContext: FC<Props> = ({ children }) => {
+const AppContext: FC<AppContextProps> = ({ children }) => {
   const [issuesData, setIssuesData] = useState<DataItem[]>([]);
   return (
     <IssuesContext.Provider
