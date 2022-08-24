@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useIssuesContext } from "contexts/IssuesContext";
 import { getGithubAccountInfo } from "utils/getGithubAccountInfo";
 
+import { DataItem } from "../types";
+
 export const useIssuesData = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUrlProvided, setIsUrlProvided] = useState(false);
@@ -9,7 +11,6 @@ export const useIssuesData = () => {
   const fetchIssues = async (url: string) => {
     setIsLoading(true);
     const { accountName, accountRepository } = getGithubAccountInfo(url);
-    console.log(accountName, accountRepository);
 
     try {
       const response = await fetch(
@@ -18,7 +19,13 @@ export const useIssuesData = () => {
       const issues = await response.json();
       issues.message === "Not Found"
         ? setIssuesData([])
-        : setIssuesData(issues);
+        : setIssuesData(
+            issues.slice(0, 250).map((issue: DataItem, i: number) => ({
+              ...issue,
+              show: true,
+              row: i,
+            }))
+          );
     } catch (error) {
       console.error(error);
     } finally {

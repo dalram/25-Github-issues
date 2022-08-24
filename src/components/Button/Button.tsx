@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
-interface ButtonProps {
+type ButtonProps = {
   title: string;
   onPress: () => void;
   background: string;
-}
+};
 
 // eslint-disable-next-line react/display-name
 const Button = React.memo((props: ButtonProps) => {
