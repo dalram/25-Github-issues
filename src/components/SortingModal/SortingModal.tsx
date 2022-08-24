@@ -5,7 +5,7 @@ import { useIssuesContext } from "contexts/IssuesContext";
 import { Button } from "components/Button";
 
 const SortingModal: FC = () => {
-  const { issuesData, setIssuesData } = useIssuesContext();
+  const { issuesData, setIssuesData, setSortingType } = useIssuesContext();
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -33,6 +33,7 @@ const SortingModal: FC = () => {
                     )
                   );
                   setModalVisible(!modalVisible);
+                  setSortingType("title asc");
                 }}
                 background="#161959"
               />
@@ -45,6 +46,7 @@ const SortingModal: FC = () => {
                     )
                   );
                   setModalVisible(!modalVisible);
+                  setSortingType("title desc");
                 }}
                 background="#161959"
               />
@@ -59,6 +61,7 @@ const SortingModal: FC = () => {
                     )
                   );
                   setModalVisible(!modalVisible);
+                  setSortingType("creation date asc");
                 }}
                 background="#0d400f"
               />
@@ -71,10 +74,22 @@ const SortingModal: FC = () => {
                     )
                   );
                   setModalVisible(!modalVisible);
+                  setSortingType("creation date desc");
                 }}
                 background="#0d400f"
               />
             </View>
+          </View>
+          <View style={styles.containerClear}>
+            <Button
+              title="Clear sorting"
+              onPress={() => {
+                setIssuesData(issuesData.sort((a, b) => a.row - b.row));
+                setModalVisible(!modalVisible);
+                setSortingType("");
+              }}
+              background="#2f3648"
+            />
           </View>
           <View style={styles.container}>
             <Button
@@ -98,6 +113,12 @@ export default SortingModal;
 
 const styles = StyleSheet.create({
   container: {
+    flex: 3,
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 5,
+  },
+  containerClear: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",

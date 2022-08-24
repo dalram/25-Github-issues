@@ -8,6 +8,8 @@ export type DataItem = {
     }
   ];
   body: string;
+  show: boolean;
+  row: number;
 };
 
 export type RootStackParams = {

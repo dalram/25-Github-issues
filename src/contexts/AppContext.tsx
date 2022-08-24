@@ -8,11 +8,14 @@ type AppContextProps = {
 
 const AppContext: FC<AppContextProps> = ({ children }) => {
   const [issuesData, setIssuesData] = useState<DataItem[]>([]);
+  const [sortingType, setSortingType] = useState("");
   return (
     <IssuesContext.Provider
       value={{
         issuesData,
         setIssuesData,
+        sortingType,
+        setSortingType,
       }}
     >
       {children}

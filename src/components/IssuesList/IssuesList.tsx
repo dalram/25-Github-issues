@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import { RouteProp } from "@react-navigation/native";
+import { useIssuesContext } from "contexts/IssuesContext";
 import { DataItem, RootStackParams } from "types";
 
 import { IssuesItem } from "components/IssuesItem";
@@ -25,10 +26,17 @@ const IssuesList: FC<IssuesListProp> = ({
   isLoading,
   issuesData,
   isUrlProvided,
+  route,
 }) => {
+  const { sortingType } = useIssuesContext();
   return (
     <View style={styles.issuesList}>
       <Text style={styles.issuesTitle}>Browse your repository issues</Text>
+      {route.name === "Issues" ? (
+        <Text style={styles.issuesSortType}>
+          {sortingType ? `Sorting by ${sortingType}` : "Issues without sorting"}
+        </Text>
+      ) : null}
       <FlatList
         data={issuesData}
         renderItem={(item) => {
@@ -74,6 +82,11 @@ const styles = StyleSheet.create({
   issuesTitle: {
     fontSize: 24,
     fontWeight: "600",
+  },
+  issuesSortType: {
+    margin: 8,
+    fontSize: 16,
+    fontWeight: "400",
   },
   issuesNotProvided: {
     marginTop: 16,
