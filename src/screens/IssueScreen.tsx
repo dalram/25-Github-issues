@@ -1,8 +1,9 @@
 import React, { FC } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { NavigationPages } from "MainStackNavigation";
 import { RootStackParams } from "types";
+
+import { NavigationPages } from "../MainStackNavigation";
 
 type IssueScreenProps = NativeStackScreenProps<
   RootStackParams,

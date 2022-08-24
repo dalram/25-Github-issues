@@ -16,7 +16,7 @@ module.exports = function (api) {
             hooks: "./src/hooks",
             screens: "./src/screens",
             types: "./src/types",
-            MainStackNavigation: "./src/MainStackNavigation",
+            utils: "./src/utils",
           },
         },
       ],

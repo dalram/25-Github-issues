@@ -7,21 +7,24 @@ import {
   View,
 } from "react-native";
 import { RouteProp } from "@react-navigation/native";
-import { NavigationPages } from "MainStackNavigation*";
 import { DataItem, RootStackParams } from "types";
 
 import { IssuesItem } from "components/IssuesItem";
+
+import { NavigationPages } from "../../MainStackNavigation";
 
 type IssuesListProp = {
   onIssuePress: (item: DataItem) => void;
   route: RouteProp<RootStackParams, NavigationPages.Issues>;
   isLoading: boolean;
   issuesData: DataItem[];
+  isUrlProvided: boolean;
 };
 const IssuesList: FC<IssuesListProp> = ({
   onIssuePress,
   isLoading,
   issuesData,
+  isUrlProvided,
 }) => {
   return (
     <View style={styles.issuesList}>
@@ -35,6 +38,10 @@ const IssuesList: FC<IssuesListProp> = ({
         ListEmptyComponent={
           isLoading ? (
             <ActivityIndicator size="large" />
+          ) : isUrlProvided ? (
+            <Text style={styles.issuesNotProvided}>
+              Wrong Github repository provided
+            </Text>
           ) : (
             <Text style={styles.issuesNotProvided}>
               Github link not provided
