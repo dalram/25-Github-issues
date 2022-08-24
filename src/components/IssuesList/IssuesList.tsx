@@ -29,7 +29,7 @@ const IssuesList: FC<IssuesListProp> = ({
   route,
 }) => {
   console.log("IssuesList");
-
+  const { sortingType } = useIssuesContext();
   return (
     <View style={styles.issuesList}>
       <Text style={styles.issuesTitle}>Browse your repository issues</Text>

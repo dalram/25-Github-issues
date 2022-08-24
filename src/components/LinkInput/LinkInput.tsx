@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
 
 import { Button } from "components/Button";
@@ -18,6 +18,9 @@ const LinkInput: FC<LinkInputProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState("");
   console.log("LinkInput");
+  const memoFetchIssues = useCallback(() => {
+    submitTextInput(inputValue);
+  }, []);
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.inputTitle}>{linkInputTitle}</Text>
@@ -29,11 +32,7 @@ const LinkInput: FC<LinkInputProps> = ({
         autoCorrect={false}
         autoCapitalize="none"
       />
-      <Button
-        title={buttonTitle}
-        onPress={() => submitTextInput(inputValue)}
-        background="#000"
-      />
+      <Button title={buttonTitle} onPress={memoFetchIssues} background="#000" />
     </View>
   );
 };
