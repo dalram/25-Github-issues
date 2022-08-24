@@ -7,9 +7,9 @@ type ButtonProps = {
   background: string;
 };
 
-const Button: FC<ButtonProps> = (props) => {
-  console.log("rendirinasi");
-
+// eslint-disable-next-line react/display-name
+const Button = React.memo((props: ButtonProps) => {
+  console.log("Button", props.title);
   return (
     <Pressable
       style={[styles.button, { backgroundColor: props.background }]}
@@ -18,7 +18,7 @@ const Button: FC<ButtonProps> = (props) => {
       <Text style={styles.text}>{props.title}</Text>
     </Pressable>
   );
-};
+});
 
 export default Button;
 

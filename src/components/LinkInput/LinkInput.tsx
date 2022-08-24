@@ -17,6 +17,7 @@ const LinkInput: FC<LinkInputProps> = ({
   submitTextInput,
 }) => {
   const [inputValue, setInputValue] = useState("");
+  console.log("LinkInput");
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.inputTitle}>{linkInputTitle}</Text>
@@ -25,6 +26,8 @@ const LinkInput: FC<LinkInputProps> = ({
         placeholder={inputPlaceholder}
         defaultValue={inputValue}
         onChangeText={(newValue) => setInputValue(newValue)}
+        autoCorrect={false}
+        autoCapitalize="none"
       />
       <Button
         title={buttonTitle}

@@ -8,6 +8,7 @@ const SortingModal: FC = () => {
   const { issuesData, setIssuesData, setSortingType } = useIssuesContext();
   const [modalVisible, setModalVisible] = useState(false);
 
+  console.log("SortingModal");
   return (
     <View style={styles.container}>
       <Modal
