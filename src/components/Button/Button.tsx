@@ -1,13 +1,15 @@
 import React, { FC } from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
-interface ButtonProps {
+type ButtonProps = {
   title: string;
   onPress: () => void;
   background: string;
-}
+};
 
 const Button: FC<ButtonProps> = (props) => {
+  console.log("rendirinasi");
+
   return (
     <Pressable
       style={[styles.button, { backgroundColor: props.background }]}

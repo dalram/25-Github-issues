@@ -17,10 +17,10 @@ export const useIssuesData = () => {
         `https://api.github.com/repos/${accountName}/${accountRepository}/issues`
       );
       const issues = await response.json();
-      issues.message === "Not Found" || issues.length > 250
+      issues.message === "Not Found"
         ? setIssuesData([])
         : setIssuesData(
-            issues.map((issue: DataItem, i: number) => ({
+            issues.slice(0, 250).map((issue: DataItem, i: number) => ({
               ...issue,
               show: true,
               row: i,
