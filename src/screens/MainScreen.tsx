@@ -24,7 +24,6 @@ const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
   ];
   const onIssuePress = (item: DataItem) =>
     navigation.navigate(NavigationPages.Issue, item);
-  console.log(issuesData);
 
   return (
     <View style={styles.container}>

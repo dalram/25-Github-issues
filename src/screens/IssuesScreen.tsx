@@ -16,7 +16,7 @@ type IssuesScreenProps = NativeStackScreenProps<
 >;
 
 const IssuesScreen: FC<IssuesScreenProps> = ({ navigation, route }) => {
-  const { isLoading, issuesData } = useIssuesData();
+  const { isLoading, issuesData, isUrlProvided } = useIssuesData();
   const onIssuePress = (item: DataItem) =>
     navigation.navigate(NavigationPages.Issue, item);
   return (
@@ -27,6 +27,7 @@ const IssuesScreen: FC<IssuesScreenProps> = ({ navigation, route }) => {
           route={route}
           isLoading={isLoading}
           issuesData={issuesData}
+          isUrlProvided={isUrlProvided}
         />
       </View>
       <View style={styles.sorting}>
