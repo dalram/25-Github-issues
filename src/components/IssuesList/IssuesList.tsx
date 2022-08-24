@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import { RouteProp } from "@react-navigation/native";
-import { DataItem,RootStackParams } from "types";
+import { DataItem, RootStackParams } from "types";
 
 import { IssuesItem } from "components/IssuesItem";
 
@@ -22,6 +22,7 @@ const IssuesList: FC<IssuesListProp> = ({
   isLoading,
   issuesData,
 }) => {
+  console.log("IssuesList");
   return (
     <View style={styles.issuesList}>
       <Text style={styles.issuesTitle}>Browse your repository issues</Text>

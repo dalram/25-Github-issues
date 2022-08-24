@@ -8,7 +8,8 @@ interface Props {
 }
 
 const LinkInput: FC<Props> = ({ fetchIssues }) => {
-  const [inputValue, setInputValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState("");
+  console.log("LinkInput");
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.inputTitle}>
@@ -19,6 +20,8 @@ const LinkInput: FC<Props> = ({ fetchIssues }) => {
         placeholder="Your Github link"
         defaultValue={inputValue}
         onChangeText={(newValue) => setInputValue(newValue)}
+        autoCorrect={false}
+        autoCapitalize="none"
       />
       <Button title="Fetch issues" onPress={() => fetchIssues(inputValue)} />
     </View>

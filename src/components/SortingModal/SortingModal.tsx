@@ -1,13 +1,14 @@
 import React, { FC, useState } from "react";
-import { Modal, StyleSheet, Text,View } from "react-native";
+import { Modal, StyleSheet, Text, View } from "react-native";
 import { useIssuesContext } from "contexts/IssuesContext";
 
 import { Button } from "components/Button";
 
 const SortingModal: FC = () => {
   const { issuesData, setIssuesData } = useIssuesContext();
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
+  console.log("SortingModal");
   return (
     <View style={styles.container}>
       <Modal
