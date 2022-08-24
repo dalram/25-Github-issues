@@ -45,6 +45,8 @@
     "simple-import-sort/exports": "error",
     "@typescript-eslint/no-empty-function": "off",
     "no-undef": "off",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error"
   }
 }

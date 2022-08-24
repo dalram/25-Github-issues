@@ -3,27 +3,37 @@ import { StyleSheet, Text, TextInput, View } from "react-native";
 
 import { Button } from "components/Button";
 
-interface Props {
-  fetchIssues: (url: string) => void;
+interface LinkInputProps {
+  linkInputTitle: string;
+  inputPlaceholder: string;
+  buttonTitle: string;
+  submitTextInput: (url: string) => void;
 }
 
-const LinkInput: FC<Props> = ({ fetchIssues }) => {
+const LinkInput: FC<LinkInputProps> = ({
+  linkInputTitle,
+  inputPlaceholder,
+  buttonTitle,
+  submitTextInput,
+}) => {
   const [inputValue, setInputValue] = useState("");
   console.log("LinkInput");
   return (
     <View style={styles.inputContainer}>
-      <Text style={styles.inputTitle}>
-        Provide GitHub organization or repository link and fetch issues!
-      </Text>
+      <Text style={styles.inputTitle}>{linkInputTitle}</Text>
       <TextInput
         style={styles.inputSection}
-        placeholder="Your Github link"
+        placeholder={inputPlaceholder}
         defaultValue={inputValue}
         onChangeText={(newValue) => setInputValue(newValue)}
         autoCorrect={false}
         autoCapitalize="none"
       />
-      <Button title="Fetch issues" onPress={() => fetchIssues(inputValue)} />
+      <Button
+        title={buttonTitle}
+        onPress={() => submitTextInput(inputValue)}
+        background="#000"
+      />
     </View>
   );
 };

@@ -89,6 +89,7 @@ const SortingModal: FC = () => {
       <Button
         title="Sort Issues"
         onPress={() => setModalVisible(!modalVisible)}
+        background="#000"
       />
     </View>
   );
