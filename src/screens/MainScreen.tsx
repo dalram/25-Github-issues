@@ -14,14 +14,17 @@ type MainScreenProps = NativeStackScreenProps<
   RootStackParams,
   NavigationPages.Issues
 >;
+const enum LinkInputTitles {
+  linkInputTitle = "Provide GitHub organization or repository link and fetch issues!",
+  inputPlaceholder = "Your Github link",
+  buttonTitle = "Fetch issues",
+}
 
 const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
+  console.log("MainScreen");
+
   const { isLoading, issuesData, fetchIssues, isUrlProvided } = useIssuesData();
-  const linkInputTitles = [
-    "Provide GitHub organization or repository link and fetch issues!",
-    "Your Github link",
-    "Fetch issues",
-  ];
+
   const onIssuePress = (item: DataItem) =>
     navigation.navigate(NavigationPages.Issue, item);
 
@@ -29,9 +32,9 @@ const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
     <View style={styles.container}>
       <LinkInput
         submitTextInput={fetchIssues}
-        linkInputTitle={linkInputTitles[0]}
-        inputPlaceholder={linkInputTitles[1]}
-        buttonTitle={linkInputTitles[2]}
+        linkInputTitle={LinkInputTitles.linkInputTitle}
+        inputPlaceholder={LinkInputTitles.inputPlaceholder}
+        buttonTitle={LinkInputTitles.buttonTitle}
       />
       <IssuesList
         onIssuePress={onIssuePress}
