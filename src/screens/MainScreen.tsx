@@ -39,6 +39,7 @@ const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
         isLoading={isLoading}
         issuesData={issuesData}
         isUrlProvided={isUrlProvided}
+        shouldShowText={false}
       />
       <Navigation />
     </View>

@@ -20,20 +20,21 @@ type IssuesListProp = {
   isLoading: boolean;
   issuesData: DataItem[];
   isUrlProvided: boolean;
+  shouldShowText: boolean;
 };
 const IssuesList: FC<IssuesListProp> = ({
   onIssuePress,
   isLoading,
   issuesData,
   isUrlProvided,
-  route,
+  shouldShowText,
 }) => {
   console.log("IssuesList");
   const { sortingType } = useIssuesContext();
   return (
     <View style={styles.issuesList}>
       <Text style={styles.issuesTitle}>Browse your repository issues</Text>
-      {route.name === "Issues" ? (
+      {shouldShowText ? (
         <Text style={styles.issuesSortType}>
           {sortingType ? `Sorting by ${sortingType}` : "Issues without sorting"}
         </Text>

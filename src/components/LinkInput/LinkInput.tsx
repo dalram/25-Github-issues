@@ -18,9 +18,7 @@ const LinkInput: FC<LinkInputProps> = ({
 }) => {
   const [inputValue, setInputValue] = useState("");
   console.log("LinkInput");
-  const memoFetchIssues = useCallback(() => {
-    submitTextInput(inputValue);
-  }, []);
+  const memoFetchIssues = useCallback(() => {}, []);
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.inputTitle}>{linkInputTitle}</Text>
@@ -34,7 +32,7 @@ const LinkInput: FC<LinkInputProps> = ({
       />
       <Button
         title={buttonTitle}
-        onPress={() => memoFetchIssues()}
+        onPress={() => submitTextInput(inputValue)}
         background="#000"
       />
     </View>
