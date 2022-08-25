@@ -53,31 +53,3 @@ const styles = StyleSheet.create({
     fontWeight: "400",
   },
 });
-
-// const LinkInput: FC<LinkInputProps> = ({
-//   linkInputTitle,
-//   inputPlaceholder,
-//   buttonTitle,
-//   submitTextInput,
-// }) => {
-//   const [inputValue, setInputValue] = useState("");
-//   console.log("LinkInput");
-//   return (
-//     <View style={styles.inputContainer}>
-//       <Text style={styles.inputTitle}>{linkInputTitle}</Text>
-//       <TextInput
-//         style={styles.inputSection}
-//         placeholder={inputPlaceholder}
-//         defaultValue={inputValue}
-//         onChangeText={(newValue) => setInputValue(newValue)}
-//         autoCorrect={false}
-//         autoCapitalize="none"
-//       />
-//       <Button
-//         title={buttonTitle}
-//         onPress={() => submitTextInput(inputValue)}
-//         background="#000"
-//       />
-//     </View>
-//   );
-// };
