@@ -13,6 +13,7 @@ interface LinkInputProps {
 const LinkInput = React.memo((props: LinkInputProps) => {
   const [inputValue, setInputValue] = useState("");
   console.log("LinkInput");
+
   return (
     <View style={styles.inputContainer}>
       <Text style={styles.inputTitle}>{props.linkInputTitle}</Text>

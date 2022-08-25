@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useIssuesContext } from "contexts/IssuesContext";
 import { getGithubAccountInfo } from "utils/getGithubAccountInfo";
 
@@ -6,7 +6,7 @@ export const useIssuesData = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUrlProvided, setIsUrlProvided] = useState(false);
   const { setIssuesData, issuesData } = useIssuesContext();
-  const fetchIssues = async (url: string) => {
+  const fetchIssues = useCallback(async (url: string) => {
     setIsLoading(true);
     const { accountName, accountRepository } = getGithubAccountInfo(url);
 
@@ -26,7 +26,7 @@ export const useIssuesData = () => {
       setIsLoading(false);
       setIsUrlProvided(true);
     }
-  };
+  }, []);
 
   return { fetchIssues, issuesData, isLoading, isUrlProvided };
 };
