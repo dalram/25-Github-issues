@@ -27,5 +27,6 @@ export const useIssuesData = () => {
       setIsUrlProvided(true);
     }
   };
+
   return { fetchIssues, issuesData, isLoading, isUrlProvided };
 };

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useCallback } from "react";
 import { StyleSheet, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useIssuesData } from "hooks/useIssuesData";
@@ -21,21 +21,23 @@ const enum LinkInputTitles {
 }
 
 const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
-  console.log("MainScreen");
-
   const { isLoading, issuesData, fetchIssues, isUrlProvided } = useIssuesData();
-
-  const onIssuePress = (item: DataItem) =>
-    navigation.navigate(NavigationPages.Issue, item);
-
-  return (
-    <View style={styles.container}>
+  const LinkInputCallBack = useCallback(() => {
+    return (
       <LinkInput
         submitTextInput={fetchIssues}
         linkInputTitle={LinkInputTitles.linkInputTitle}
         inputPlaceholder={LinkInputTitles.inputPlaceholder}
         buttonTitle={LinkInputTitles.buttonTitle}
       />
+    );
+  }, []);
+  const onIssuePress = (item: DataItem) =>
+    navigation.navigate(NavigationPages.Issue, item);
+
+  return (
+    <View style={styles.container}>
+      <LinkInputCallBack />
       <IssuesList
         onIssuePress={onIssuePress}
         route={route}
