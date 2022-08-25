@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
 type ButtonProps = {
@@ -8,7 +8,7 @@ type ButtonProps = {
 };
 
 // eslint-disable-next-line react/display-name
-const Button = React.memo((props: ButtonProps) => {
+const Button: FC<ButtonProps> = (props) => {
   console.log("Button", props.title);
   return (
     <Pressable
@@ -18,7 +18,7 @@ const Button = React.memo((props: ButtonProps) => {
       <Text style={styles.text}>{props.title}</Text>
     </Pressable>
   );
-});
+};
 
 export default Button;
 

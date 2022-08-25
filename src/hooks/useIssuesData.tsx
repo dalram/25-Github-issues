@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useIssuesContext } from "contexts/IssuesContext";
 import { getGithubAccountInfo } from "utils/getGithubAccountInfo";
 
-import { DataItem } from "../types";
-
 export const useIssuesData = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isUrlProvided, setIsUrlProvided] = useState(false);
@@ -17,7 +15,6 @@ export const useIssuesData = () => {
         `https://api.github.com/repos/${accountName}/${accountRepository}/issues`
       );
       const issues = await response.json();
-      console.log(issues);
       if (issues.message === "Not Found") {
         setIssuesData([]);
       } else {
