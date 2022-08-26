@@ -4,6 +4,13 @@ import { useIssuesContext } from "contexts/IssuesContext";
 
 import { Button } from "components/Button";
 
+enum SortingType {
+  TitleAsc = "title asc",
+  TitleDesc = "title desc",
+  DateAsc = "creation date asc",
+  DateDesc = "creation date desc",
+}
+
 const SortingModal: FC = () => {
   const { issuesData, setIssuesData, setSortingType } = useIssuesContext();
   const [modalVisible, setModalVisible] = useState(false);
@@ -34,7 +41,7 @@ const SortingModal: FC = () => {
                     )
                   );
                   setModalVisible(false);
-                  setSortingType("title asc");
+                  setSortingType(SortingType.TitleAsc);
                 }}
                 background="#161959"
               />
@@ -47,7 +54,7 @@ const SortingModal: FC = () => {
                     )
                   );
                   setModalVisible(false);
-                  setSortingType("title desc");
+                  setSortingType(SortingType.TitleDesc);
                 }}
                 background="#161959"
               />
@@ -62,7 +69,7 @@ const SortingModal: FC = () => {
                     )
                   );
                   setModalVisible(false);
-                  setSortingType("creation date asc");
+                  setSortingType(SortingType.DateAsc);
                 }}
                 background="#0d400f"
               />
@@ -75,7 +82,7 @@ const SortingModal: FC = () => {
                     )
                   );
                   setModalVisible(false);
-                  setSortingType("creation date desc");
+                  setSortingType(SortingType.DateDesc);
                 }}
                 background="#0d400f"
               />
@@ -83,9 +90,9 @@ const SortingModal: FC = () => {
           </View>
           <View style={styles.containerClear}>
             <Button
-              title="Clear sorting"
+              title="Default sorting"
               onPress={() => {
-                setIssuesData(issuesData.sort((a, b) => a.row - b.row));
+                setIssuesData(issuesData.sort((a, b) => b.id - a.id));
                 setModalVisible(false);
                 setSortingType("");
               }}

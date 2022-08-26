@@ -8,6 +8,8 @@ type IssuesItemProps = {
 };
 
 const IssuesItem: FC<IssuesItemProps> = ({ item, onIssuePress }) => {
+  console.log("IssuesItem");
+
   return (
     <View style={styles.issueContainer}>
       <Pressable
