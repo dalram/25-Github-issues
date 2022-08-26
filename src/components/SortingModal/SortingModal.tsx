@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { Modal, StyleSheet, Text, View } from "react-native";
 import { useIssuesContext } from "contexts/IssuesContext";
 import { logRender } from "utils/logRender";
+import { sortingTypes } from "utils/sortingTypes";
 
 import { Button } from "components/Button";
 
@@ -17,6 +18,13 @@ const SortingModal: FC = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   logRender("SortingModal");
+  const {
+    sortTitleAsc,
+    sortTitleDesc,
+    sortDateAsc,
+    sortDateDesc,
+    defaultSorting,
+  } = sortingTypes(issuesData);
   return (
     <View style={styles.container}>
       <Modal
@@ -36,11 +44,7 @@ const SortingModal: FC = () => {
               <Button
                 title="By title asc"
                 onPress={() => {
-                  setIssuesData(
-                    [...issuesData].sort((a, b) =>
-                      a.title.localeCompare(b.title)
-                    )
-                  );
+                  setIssuesData(sortTitleAsc);
                   setModalVisible(false);
                   setSortingType(SortingType.TitleAsc);
                 }}
@@ -49,11 +53,7 @@ const SortingModal: FC = () => {
               <Button
                 title="By title desc"
                 onPress={() => {
-                  setIssuesData(
-                    [...issuesData].sort((a, b) =>
-                      b.title.localeCompare(a.title)
-                    )
-                  );
+                  setIssuesData(sortTitleDesc);
                   setModalVisible(false);
                   setSortingType(SortingType.TitleDesc);
                 }}
@@ -64,11 +64,7 @@ const SortingModal: FC = () => {
               <Button
                 title="By date asc"
                 onPress={() => {
-                  setIssuesData(
-                    [...issuesData].sort((a, b) =>
-                      a.created_at.localeCompare(b.created_at)
-                    )
-                  );
+                  setIssuesData(sortDateAsc);
                   setModalVisible(false);
                   setSortingType(SortingType.DateAsc);
                 }}
@@ -77,11 +73,7 @@ const SortingModal: FC = () => {
               <Button
                 title="By date desc"
                 onPress={() => {
-                  setIssuesData(
-                    [...issuesData].sort((a, b) =>
-                      b.created_at.localeCompare(a.created_at)
-                    )
-                  );
+                  setIssuesData(sortDateDesc);
                   setModalVisible(false);
                   setSortingType(SortingType.DateDesc);
                 }}
@@ -93,7 +85,7 @@ const SortingModal: FC = () => {
             <Button
               title="Default sorting"
               onPress={() => {
-                setIssuesData(issuesData.sort((a, b) => b.id - a.id));
+                setIssuesData(defaultSorting);
                 setModalVisible(false);
                 setSortingType("");
               }}
