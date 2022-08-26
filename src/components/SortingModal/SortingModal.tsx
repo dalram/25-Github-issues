@@ -1,21 +1,22 @@
 import React, { FC, useState } from "react";
 import { Modal, StyleSheet, Text, View } from "react-native";
 import { useIssuesContext } from "contexts/IssuesContext";
+import { logRender } from "utils/logRender";
 
 import { Button } from "components/Button";
 
 enum SortingType {
-  TitleAsc = "title asc",
-  TitleDesc = "title desc",
-  DateAsc = "creation date asc",
-  DateDesc = "creation date desc",
+  TitleAsc = "TitleAsc",
+  TitleDesc = "TitleDesc",
+  DateAsc = "DateAsc",
+  DateDesc = "DateDesc",
 }
 
 const SortingModal: FC = () => {
   const { issuesData, setIssuesData, setSortingType } = useIssuesContext();
   const [modalVisible, setModalVisible] = useState(false);
 
-  console.log("SortingModal");
+  logRender("SortingModal");
   return (
     <View style={styles.container}>
       <Modal

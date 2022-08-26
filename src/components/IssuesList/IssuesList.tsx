@@ -9,6 +9,7 @@ import {
 import { RouteProp } from "@react-navigation/native";
 import { useIssuesContext } from "contexts/IssuesContext";
 import { DataItem, RootStackParams } from "types";
+import { logRender } from "utils/logRender";
 
 import { IssuesItem } from "components/IssuesItem";
 
@@ -20,21 +21,21 @@ type IssuesListProp = {
   isLoading: boolean;
   issuesData: DataItem[];
   isUrlProvided: boolean;
-  shouldShowText: boolean;
+  shouldShowSortingType: boolean;
 };
 const IssuesList: FC<IssuesListProp> = ({
   onIssuePress,
   isLoading,
   issuesData,
   isUrlProvided,
-  shouldShowText,
+  shouldShowSortingType,
 }) => {
-  console.log("IssuesList");
+  logRender("IssuesList");
   const { sortingType } = useIssuesContext();
   return (
     <View style={styles.issuesList}>
       <Text style={styles.issuesTitle}>Browse your repository issues</Text>
-      {shouldShowText ? (
+      {shouldShowSortingType ? (
         <Text style={styles.issuesSortType}>
           {sortingType ? `Sorting by ${sortingType}` : "Issues without sorting"}
         </Text>

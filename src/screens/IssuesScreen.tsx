@@ -28,7 +28,7 @@ const IssuesScreen: FC<IssuesScreenProps> = ({ navigation, route }) => {
           isLoading={isLoading}
           issuesData={issuesData}
           isUrlProvided={isUrlProvided}
-          shouldShowText={true}
+          shouldShowSortingType={true}
         />
       </View>
       <View style={styles.sorting}>
