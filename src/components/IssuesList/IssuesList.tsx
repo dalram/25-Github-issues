@@ -50,7 +50,7 @@ const IssuesList: FC<IssuesListProp> = ({
             <ActivityIndicator size="large" />
           ) : isUrlProvided ? (
             <Text style={styles.issuesNotProvided}>
-              Wrong Github repository provided
+              Error: Wrong Github repository link provided
             </Text>
           ) : (
             <Text style={styles.issuesNotProvided}>
