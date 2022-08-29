@@ -25,6 +25,31 @@ const SortingModal: FC = () => {
     sortDateDesc,
     defaultSorting,
   } = sortingTypes(issuesData);
+
+  // sortingIssues function
+  const sortingIssues = (type: string) => {
+    if (type === SortingType.TitleAsc) {
+      setIssuesData(sortTitleAsc);
+      setModalVisible(false);
+      setSortingType(SortingType.TitleAsc);
+    }
+    if (type === SortingType.TitleDesc) {
+      setIssuesData(sortTitleDesc);
+      setModalVisible(false);
+      setSortingType(SortingType.TitleDesc);
+    }
+    if (type === SortingType.DateAsc) {
+      setIssuesData(sortDateAsc);
+      setModalVisible(false);
+      setSortingType(SortingType.DateAsc);
+    }
+    if (type === SortingType.DateDesc) {
+      setIssuesData(sortDateDesc);
+      setModalVisible(false);
+      setSortingType(SortingType.DateDesc);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Modal
@@ -43,40 +68,24 @@ const SortingModal: FC = () => {
             <View style={styles.container}>
               <Button
                 title="By title asc"
-                onPress={() => {
-                  setIssuesData(sortTitleAsc);
-                  setModalVisible(false);
-                  setSortingType(SortingType.TitleAsc);
-                }}
+                onPress={() => sortingIssues(SortingType.TitleAsc)}
                 background="#161959"
               />
               <Button
                 title="By title desc"
-                onPress={() => {
-                  setIssuesData(sortTitleDesc);
-                  setModalVisible(false);
-                  setSortingType(SortingType.TitleDesc);
-                }}
+                onPress={() => sortingIssues(SortingType.TitleDesc)}
                 background="#161959"
               />
             </View>
             <View style={styles.container}>
               <Button
                 title="By date asc"
-                onPress={() => {
-                  setIssuesData(sortDateAsc);
-                  setModalVisible(false);
-                  setSortingType(SortingType.DateAsc);
-                }}
+                onPress={() => sortingIssues(SortingType.DateAsc)}
                 background="#0d400f"
               />
               <Button
                 title="By date desc"
-                onPress={() => {
-                  setIssuesData(sortDateDesc);
-                  setModalVisible(false);
-                  setSortingType(SortingType.DateDesc);
-                }}
+                onPress={() => sortingIssues(SortingType.DateDesc)}
                 background="#0d400f"
               />
             </View>
