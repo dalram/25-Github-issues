@@ -18,6 +18,7 @@ type MainScreenProps = NativeStackScreenProps<
 
 const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
   const { isLoading, issuesData, fetchIssues, isUrlProvided } = useIssuesData();
+  const { useBackHandler } = useBackHandlerAndroid();
   const onIssuePress = (item: DataItem) =>
     navigation.navigate(NavigationPages.Issue, item);
   const LinkInputTitles = {
@@ -26,7 +27,6 @@ const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
     inputPlaceholder: "Your Github link",
     buttonTitle: "Fetch issues",
   };
-  const { useBackHandler } = useBackHandlerAndroid();
   useBackHandler();
   return (
     <View style={styles.container}>
