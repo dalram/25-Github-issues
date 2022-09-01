@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { StyleSheet, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import useBackHandlerAndroid from "hooks/useBackHandlerAndroid";
 import { useIssuesData } from "hooks/useIssuesData";
 import { DataItem, RootStackParams } from "types";
 
@@ -25,6 +26,8 @@ const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
     inputPlaceholder: "Your Github link",
     buttonTitle: "Fetch issues",
   };
+  const { useBackHandler } = useBackHandlerAndroid();
+  useBackHandler();
   return (
     <View style={styles.container}>
       <LinkInput
