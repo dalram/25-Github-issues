@@ -27,7 +27,6 @@ const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
     inputPlaceholder: "Your Github link",
     buttonTitle: "Fetch issues",
   };
-  useBackHandler();
   return (
     <View style={styles.container}>
       <LinkInput
