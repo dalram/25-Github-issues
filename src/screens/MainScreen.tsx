@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { StyleSheet, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import useBackHandlerAndroid from "hooks/useBackHandlerAndroid";
 import { useIssuesData } from "hooks/useIssuesData";
 import { DataItem, RootStackParams } from "types";
 
@@ -14,17 +15,19 @@ type MainScreenProps = NativeStackScreenProps<
   RootStackParams,
   NavigationPages.Issues
 >;
-const enum LinkInputTitles {
-  linkInputTitle = "Provide GitHub organization or repository link and fetch issues!",
-  inputPlaceholder = "Your Github link",
-  buttonTitle = "Fetch issues",
-}
 
 const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
   const { isLoading, issuesData, fetchIssues, isUrlProvided } = useIssuesData();
+  const { useBackHandler } = useBackHandlerAndroid();
   const onIssuePress = (item: DataItem) =>
     navigation.navigate(NavigationPages.Issue, item);
-
+  const LinkInputTitles = {
+    linkInputTitle:
+      "Provide GitHub organization or repository link and fetch issues!",
+    inputPlaceholder: "Your Github link",
+    buttonTitle: "Fetch issues",
+  };
+  useBackHandler();
   return (
     <View style={styles.container}>
       <LinkInput
@@ -39,7 +42,7 @@ const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
         isLoading={isLoading}
         issuesData={issuesData}
         isUrlProvided={isUrlProvided}
-        shouldShowText={false}
+        shouldShowSortingType={false}
       />
       <Navigation />
     </View>

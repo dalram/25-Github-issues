@@ -1,13 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
+import { logRender } from "utils/logRender";
 
 type ButtonProps = {
   title: string;
   onPress: () => void;
   background: string;
 };
-const Button = React.memo((props: ButtonProps) => {
-  console.log("Button", props.title);
+const Button: FC<ButtonProps> = (props) => {
+  logRender(`Button ${props.title}`);
   return (
     <Pressable
       style={[styles.button, { backgroundColor: props.background }]}
@@ -16,7 +17,7 @@ const Button = React.memo((props: ButtonProps) => {
       <Text style={styles.text}>{props.title}</Text>
     </Pressable>
   );
-});
+};
 
 export default Button;
 

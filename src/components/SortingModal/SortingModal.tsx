@@ -1,21 +1,55 @@
 import React, { FC, useState } from "react";
 import { Modal, StyleSheet, Text, View } from "react-native";
 import { useIssuesContext } from "contexts/IssuesContext";
+import { logRender } from "utils/logRender";
+import { sortingTypes } from "utils/sortingTypes";
 
 import { Button } from "components/Button";
 
 enum SortingType {
-  TitleAsc = "title asc",
-  TitleDesc = "title desc",
-  DateAsc = "creation date asc",
-  DateDesc = "creation date desc",
+  TitleAsc = "TitleAsc",
+  TitleDesc = "TitleDesc",
+  DateAsc = "DateAsc",
+  DateDesc = "DateDesc",
 }
 
 const SortingModal: FC = () => {
   const { issuesData, setIssuesData, setSortingType } = useIssuesContext();
   const [modalVisible, setModalVisible] = useState(false);
 
-  console.log("SortingModal");
+  logRender("SortingModal");
+  const {
+    sortTitleAsc,
+    sortTitleDesc,
+    sortDateAsc,
+    sortDateDesc,
+    defaultSorting,
+  } = sortingTypes(issuesData);
+
+  // sortingIssues function
+  const sortingIssues = (type: string) => {
+    if (type === SortingType.TitleAsc) {
+      setIssuesData(sortTitleAsc);
+      setModalVisible(false);
+      setSortingType(SortingType.TitleAsc);
+    }
+    if (type === SortingType.TitleDesc) {
+      setIssuesData(sortTitleDesc);
+      setModalVisible(false);
+      setSortingType(SortingType.TitleDesc);
+    }
+    if (type === SortingType.DateAsc) {
+      setIssuesData(sortDateAsc);
+      setModalVisible(false);
+      setSortingType(SortingType.DateAsc);
+    }
+    if (type === SortingType.DateDesc) {
+      setIssuesData(sortDateDesc);
+      setModalVisible(false);
+      setSortingType(SortingType.DateDesc);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Modal
@@ -34,56 +68,24 @@ const SortingModal: FC = () => {
             <View style={styles.container}>
               <Button
                 title="By title asc"
-                onPress={() => {
-                  setIssuesData(
-                    [...issuesData].sort((a, b) =>
-                      a.title.localeCompare(b.title)
-                    )
-                  );
-                  setModalVisible(false);
-                  setSortingType(SortingType.TitleAsc);
-                }}
+                onPress={() => sortingIssues(SortingType.TitleAsc)}
                 background="#161959"
               />
               <Button
                 title="By title desc"
-                onPress={() => {
-                  setIssuesData(
-                    [...issuesData].sort((a, b) =>
-                      b.title.localeCompare(a.title)
-                    )
-                  );
-                  setModalVisible(false);
-                  setSortingType(SortingType.TitleDesc);
-                }}
+                onPress={() => sortingIssues(SortingType.TitleDesc)}
                 background="#161959"
               />
             </View>
             <View style={styles.container}>
               <Button
                 title="By date asc"
-                onPress={() => {
-                  setIssuesData(
-                    [...issuesData].sort((a, b) =>
-                      a.created_at.localeCompare(b.created_at)
-                    )
-                  );
-                  setModalVisible(false);
-                  setSortingType(SortingType.DateAsc);
-                }}
+                onPress={() => sortingIssues(SortingType.DateAsc)}
                 background="#0d400f"
               />
               <Button
                 title="By date desc"
-                onPress={() => {
-                  setIssuesData(
-                    [...issuesData].sort((a, b) =>
-                      b.created_at.localeCompare(a.created_at)
-                    )
-                  );
-                  setModalVisible(false);
-                  setSortingType(SortingType.DateDesc);
-                }}
+                onPress={() => sortingIssues(SortingType.DateDesc)}
                 background="#0d400f"
               />
             </View>
@@ -92,7 +94,7 @@ const SortingModal: FC = () => {
             <Button
               title="Default sorting"
               onPress={() => {
-                setIssuesData(issuesData.sort((a, b) => b.id - a.id));
+                setIssuesData(defaultSorting);
                 setModalVisible(false);
                 setSortingType("");
               }}

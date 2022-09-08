@@ -8,7 +8,6 @@ export const useIssuesData = () => {
   const { setIssuesData, issuesData } = useIssuesContext();
   const fetchIssues = useCallback(async (url: string) => {
     setIsLoading(true);
-    console.log("gaunamas URL:", url);
 
     const { accountName, accountRepository } = getGithubAccountInfo(url);
 
