@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { useIssuesContext } from "contexts/IssuesContext";
+import { DataItem } from "types*";
 import { getGithubAccountInfo } from "utils/getGithubAccountInfo";
 
 export const useIssuesData = () => {
@@ -19,7 +20,13 @@ export const useIssuesData = () => {
       if (issues.message === "Not Found") {
         setIssuesData([]);
       } else {
-        setIssuesData(issues.slice(0, 250));
+        setIssuesData(
+          issues.slice(0, 250).map((item: DataItem, i: number) => ({
+            ...item,
+            show: true,
+            row: i,
+          }))
+        );
       }
     } catch (error) {
       console.error(error);

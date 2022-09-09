@@ -18,7 +18,7 @@ type MainScreenProps = NativeStackScreenProps<
 
 const MainScreen: FC<MainScreenProps> = ({ navigation, route }) => {
   const { isLoading, issuesData, fetchIssues, isUrlProvided } = useIssuesData();
-  const { useBackHandler } = useBackHandlerAndroid();
+  useBackHandlerAndroid();
   const onIssuePress = (item: DataItem) =>
     navigation.navigate(NavigationPages.Issue, item);
   const LinkInputTitles = {

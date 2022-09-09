@@ -41,7 +41,7 @@ const IssuesList: FC<IssuesListProp> = ({
         </Text>
       ) : null}
       <FlatList
-        data={issuesData}
+        data={[...issuesData].filter((item) => item.show)}
         renderItem={(item) => {
           return <IssuesItem item={item.item} onIssuePress={onIssuePress} />;
         }}

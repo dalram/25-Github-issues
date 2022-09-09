@@ -6,10 +6,10 @@ import { DataItem, RootStackParams } from "types";
 
 import { IssuesList } from "components/IssuesList";
 import { Navigation } from "components/Navigation";
+import { Search } from "components/Search";
 import { SortingModal } from "components/SortingModal";
 
 import { NavigationPages } from "../MainStackNavigation";
-
 type IssuesScreenProps = NativeStackScreenProps<
   RootStackParams,
   NavigationPages.Issues
@@ -21,6 +21,8 @@ const IssuesScreen: FC<IssuesScreenProps> = ({ navigation, route }) => {
     navigation.navigate(NavigationPages.Issue, item);
   return (
     <View style={styles.container}>
+      <Search />
+
       <View style={styles.issues}>
         <IssuesList
           onIssuePress={onIssuePress}
